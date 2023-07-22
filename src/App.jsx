@@ -1,25 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Card from "./components/Card";
+import Button from "./components/Button"
+import HelpPage from './components/HelpPage';
+
+import strategiesArray from './strategies';
+
+const strategies = strategiesArray.strategies;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [strategy, setStrategy] = useState(null);
 
+  function changeStategy() {
+    setStrategy(strategies[Math.floor(Math.random() * strategies.length)])
+  }
+ 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className='text-3xl font-bold underline'>
-        Test
-      </h1>
-    </>
+    <div className="px-12">
+      <header className='py-4'> 
+        <h1 className="text-6xl font-display text-center">Oblique Strategies</h1>
+      </header>
+
+      <main className="flex flex-col justify-center items-center mt-20">
+        <Card strategy={strategy} />
+        <div className=' w-full flex justify-center gap-20 mt-32 scroll-py-8'>
+          <Button onClick={changeStategy}>Draw Card</Button>
+          <Button>Add to spread</Button>
+          <Button>Add to favorites</Button>
+        </div>
+      </main>
+
+      <footer className='w-full py-4 px-12 fixed bottom-0 left-0 shadow-inner'>
+        <p className='text-sm text-shark-900 text-center'>&copy; 2023 by David LaRocco</p>
+      </footer>
+    </div>
   )
 }
 
