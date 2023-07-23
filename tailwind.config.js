@@ -9,6 +9,10 @@ export default {
       sans: ["Lato", "sans-serif"],
       display: ["Marcellus SC", "serif"],
     },
+    listStyleType: {
+      none: 'none',
+      square: 'square',
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
