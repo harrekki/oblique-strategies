@@ -21,7 +21,7 @@ export default function HelpPage() {
                     >
                         &quot;[The cards] can be used as a pack (a set of possibilities being continuously reviewed in the mind) or by drawing a single card from the shuffled pack when a dilemma occurs in a working situation. In this case, the card is trusted even if the appropriateness is quite unclear. They are not final, as new ideas will present themselves...&quot;
                     </blockquote>
-                Clicking the &quot;Draw card&quot; button will display a single, random strategy. If you want to arrange a layout of several strategies, click the &quot;Add to spread&quot; button and expand the frame on the rignt to view your spread or clear it.  You can also save strategies by clicking the &quot;Add to favorites&quot; button for easy review. If you want to view a complete list of all the strategies, see the link below.
+                Clicking the &quot;Draw card&quot; button will display a single, random strategy. If you want to arrange a layout of several strategies, click the &quot;Add to spread&quot; button and expand the frame on the right to view your spread or clear it.  You can also save strategies by clicking the &quot;Add to favorites&quot; button for easy review. If you want to view a complete list of all the strategies, see the link below.
             </p>
 
             <h3 className="text-lg font-bold mt-4">Additional Information</h3>

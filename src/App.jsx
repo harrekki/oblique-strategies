@@ -25,8 +25,15 @@ function App() {
  
   return (
     <div className="flex flex-col">
-      <header className='shrink-0 relative py-4'> 
-      <span className='absolute top-5 left-0'><HelpButton onClick={toggleHelp}/></span>
+      <header className='w-11/12 shrink-0 relative py-4 mx-auto'> 
+      <span className='absolute top-6 left-0'>
+        <HelpButton onClick={toggleHelp}>
+          {displayHelp 
+            ? <i className="fa-solid fa-arrow-left"></i>
+            : <i className="fa-solid fa-question"></i>
+        }
+        </HelpButton>
+      </span>
         <h1 className="text-nomad-950 text-6xl font-display text-center">Oblique Strategies</h1>
       </header>
 

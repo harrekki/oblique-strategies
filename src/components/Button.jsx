@@ -14,6 +14,8 @@ export default function Button({children, onClick}) {
                 border-nomad-800
                 rounded-sm
                 drop-shadow-sm
+                hover:bg-nomad-500
+                hover:text-nomad-50
             "
             onClick={onClick}
         >
