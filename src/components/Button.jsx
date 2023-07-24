@@ -14,8 +14,12 @@ export default function Button({children, onClick}) {
                 border-nomad-800
                 rounded-sm
                 drop-shadow-sm
+                transition
+                ease-in-out
+                delay-50
                 hover:bg-nomad-500
                 hover:text-nomad-50
+                duration-300
             "
             onClick={onClick}
         >

@@ -7,7 +7,12 @@ export default function Link({children, url}) {
             href={url} 
             target="_blank" 
             rel="noreferrer"
-            className="hover:text-nomad-700 hover:border-b-2 border-nomad-700"
+            className="
+                hover:text-nomad-600 
+                hover:border-b-2 
+                border-nomad-600
+                text-nomad-800
+            "
         >
             {children}
         </a>

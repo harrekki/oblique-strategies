@@ -16,9 +16,12 @@ export default function HelpButton({onClick, children}) {
                 border-nomad-800 
                 rounded-full
                 cursor-pointer
+                transition
+                ease-in-out
                 hover:bg-nomad-500
                 hover:border-nomad-900
                 hover:text-nomad-50
+                duration-300
             "
             onClick={onClick}
         >
