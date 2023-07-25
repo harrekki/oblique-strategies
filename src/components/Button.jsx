@@ -9,7 +9,7 @@ export default function Button({children, onClick}) {
                 text-lg
                 text-center
                 px-8
-                py-2
+                py-4
                 border
                 border-nomad-800
                 rounded-sm
@@ -17,8 +17,8 @@ export default function Button({children, onClick}) {
                 transition
                 ease-in-out
                 delay-50
-                hover:bg-nomad-500
-                hover:text-nomad-50
+                sm:hover:bg-nomad-500
+                sm:hover:text-nomad-50
                 duration-300
             "
             onClick={onClick}

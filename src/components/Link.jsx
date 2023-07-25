@@ -8,10 +8,10 @@ export default function Link({children, url}) {
             target="_blank" 
             rel="noreferrer"
             className="
-                hover:text-nomad-600 
+                text-nomad-800
                 hover:border-b-2 
                 border-nomad-600
-                text-nomad-800
+                hover:text-nomad-600 
             "
         >
             {children}

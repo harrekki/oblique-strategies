@@ -10,17 +10,19 @@ export default function HelpButton({onClick, children}) {
                 flex 
                 justify-center 
                 items-center 
-                w-10
-                h-10
+                w-14
+                h-14
+                sm:w-10
+                sm:h-10
                 border-4 
                 border-nomad-800 
                 rounded-full
                 cursor-pointer
                 transition
                 ease-in-out
-                hover:bg-nomad-500
-                hover:border-nomad-900
-                hover:text-nomad-50
+                sm:hover:bg-nomad-500
+                sm:hover:border-nomad-900
+                sm:hover:text-nomad-50
                 duration-300
             "
             onClick={onClick}

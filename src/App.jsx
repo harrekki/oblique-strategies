@@ -25,16 +25,16 @@ function App() {
  
   return (
     <div className="flex flex-col">
-      <header className='w-11/12 shrink-0 relative py-4 mx-auto'> 
-      <span className='absolute top-6 left-0'>
+      <header className='flex flex-col w-11/12 shrink-0 relative py-4 mx-auto'> 
+      
         <HelpButton onClick={toggleHelp}>
           {displayHelp 
             ? <i className="fa-solid fa-arrow-left"></i>
             : <i className="fa-solid fa-question"></i>
         }
         </HelpButton>
-      </span>
-        <h1 className="text-nomad-950 text-6xl font-display text-center">Oblique Strategies</h1>
+    
+        <h1 className="text-nomad-950 text-4xl sm:text-6xl font-display text-center mt-4 sm:mt-1">Oblique Strategies</h1>
       </header>
 
       { !displayHelp ?
@@ -51,7 +51,7 @@ function App() {
             "
           >
           <Card strategy={strategy} />
-          <div className=' w-full flex justify-center gap-20 mt-28 scroll-py-8'>
+          <div className='w-full flex flex-col sm:flex-row justify-center gap-6 sm:gap-20 mt-28'>
             <Button onClick={changeStategy}>Draw Card</Button>
             <Button>Add to spread</Button>
             <Button>Add to favorites</Button>
