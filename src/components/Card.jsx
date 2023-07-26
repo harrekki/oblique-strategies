@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Card({ strategy }) {
 
     const cardStyles = "flex justify-center items-center p-8 w-80 h-60 sm:w-112 sm:h-72 border border-shark-400 rounded-2xl drop-shadow-xl";

@@ -9,7 +9,7 @@ export default function HelpPage() {
                 Over One Hundred Worthwhile Dilemmas
             </h2>
             <p className="mt-8"> 
-                Oblique Strategies was a orginally created as a card deck by musician <Link url="https://www.brian-eno.net/">Brian Eno</Link> and visual artist <Link url="http://www.peterschmidtweb.com/main.html">Peter Schmidt</Link> during the 1970s. Thier purpose was to help break creative blocks by offering alternative ways of thinking via suggestions or phrases. Over time, thier popularity grew and they have been used by many people in different contexts. Only a limited number of decks were created, so finding a physical deck can be difficult and expensive, which is why I created this app.
+                Oblique Strategies was a orginally created as a card deck by musician <Link url="https://www.brian-eno.net/">Brian Eno</Link> and visual artist <Link url="http://www.peterschmidtweb.com/main.html">Peter Schmidt</Link> during the 1970s. Their purpose was to help break creative blocks by offering alternative ways of thinking via suggestions or phrases. Over time, the deck&apos;s popularity grew and they have been used by many people in different contexts. Only a limited number of decks were created, so finding a physical deck can be difficult and expensive, which is why I created this app.
             </p>
 
             <h3 className="text-xl font-bold mt-4">How to Use the Deck</h3>

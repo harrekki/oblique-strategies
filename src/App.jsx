@@ -1,21 +1,21 @@
 import { useState } from 'react';
 
-import Card from "./components/Card";
-import Button from "./components/Button";
-import HelpPage from "./components/HelpPage";
+// import Card from "./components/Card";
+// import Button from "./components/Button";
+// import HelpPage from "./components/HelpPage";
+import SplitView from './components/SplitView';
 import Link from "./components/Link";
+import HelpButton from './components/HelpButton';
 
 import strategiesArray from './strategies';
-import HelpButton from './components/HelpButton';
 
 const strategies = strategiesArray.strategies;
 
 function App() {
   const [strategy, setStrategy] = useState(null);
   const [displayHelp, setDisplayHelp] = useState(false);
-  console.log(displayHelp);
 
-  function changeStategy() {
+  function changeStrategy() {
     setStrategy(strategies[Math.floor(Math.random() * strategies.length)]);
   }
 
@@ -37,28 +37,11 @@ function App() {
         <h1 className="text-nomad-950 text-4xl sm:text-6xl font-display text-center mt-4 sm:mt-1">Oblique Strategies</h1>
       </header>
 
-      { !displayHelp ?
-          <main 
-            className="
-              flex 
-              flex-col 
-              grow 
-              justify-center 
-              items-center 
-              mt-20 
-              px-12
-              pb-12
-            "
-          >
-          <Card strategy={strategy} />
-          <div className='w-full flex flex-col sm:flex-row justify-center gap-6 sm:gap-20 mt-28'>
-            <Button onClick={changeStategy}>Draw Card</Button>
-            <Button>Add to spread</Button>
-            <Button>Add to favorites</Button>
-          </div>
-          </main>
-        : <HelpPage />
-      }
+      <SplitView 
+        strategy={strategy} 
+        changeStrategy={changeStrategy} 
+        displayHelp={displayHelp} 
+      />
 
       <footer className="w-full shrink-0 py-4 px-12 shadow-inner">
         <p className='text-sm text-shark-900 text-center'>
