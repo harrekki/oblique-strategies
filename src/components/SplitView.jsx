@@ -4,8 +4,13 @@ import HelpPage from "./HelpPage";
 import RightPanel from "./RightPanel";
 import Card from "./Card";
 import Button from "./Button";
+import Favorites from "./Favorites";
+import Spread from "./Spread";
 
 export default function SplitView({strategy, changeStrategy, displayHelp}) {
+
+    /* ---------- State and functions for resizable frames ---------- */
+
     const [rightWidth, setRightWidth] = useState();
     const [separatorXPosition, setSeparatorXPosition] = useState();
     const [isDragging, setIsDragging] = useState(false);
@@ -55,6 +60,13 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
         }
       })
 
+    /* ---- State and functions for Favorites and Spread components ---- */
+      const [displayFavorites, setDisplayFavorites] = useState(false);
+
+      const toggleFavorites = () => {
+        setDisplayFavorites(prevState => !prevState);
+      }
+ 
     return (
         <div className="flex h-full" ref={splitPaneRef}> 
             
@@ -88,9 +100,20 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
             <RightPanel 
                 rightWidth={rightWidth} 
                 setRightWidth={setRightWidth}
-                className="bg-shark-50"
+                className="bg-shark-50 w-full flex flex-col item-center"
             >
-                <h1>Right Panel Content</h1>
+                <button 
+                    className="text-shark-950 font-bold text-lg self-end pt-4 mr-4 hover:text-nomad-700"
+                    onClick={toggleFavorites}
+                >
+                    Show {displayFavorites ? "spread" : "favorites"} 
+                    <i className="fa-solid fa-chevron-right ml-1"></i>
+                </button>
+                { displayFavorites
+                    ? <Favorites />
+                    : <Spread /> 
+                }
+
             </RightPanel>
         </div>
     )
