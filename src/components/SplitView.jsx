@@ -17,7 +17,7 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
 
     const splitPaneRef = createRef();
 
-    const MIN_WIDTH = 0;
+    const MIN_WIDTH = 250;
 
     const handleMouseDown = (event) => {
         setSeparatorXPosition(event.clientX);
@@ -62,10 +62,23 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
 
     /* ---- State and functions for Favorites and Spread components ---- */
       const [displayFavorites, setDisplayFavorites] = useState(false);
-
+      const [spread, setSpread] = useState([]);
+      const [favorites, setFavorites] = useState([]);
+      
       const toggleFavorites = () => {
         setDisplayFavorites(prevState => !prevState);
       }
+
+      function addToSpread() {
+        setSpread(prevSpread => [...prevSpread, strategy]);
+      }
+
+      function addToFavorites() {
+        setFavorites(prevFav => [...prevFav, strategy]);
+        favorites.map(favorite => console.log(favorite))
+      }
+
+      const largeCard = "text-2xl p-8 w-80 h-60 sm:w-112 sm:h-72"
  
     return (
         <div className="flex h-full" ref={splitPaneRef}> 
@@ -83,11 +96,11 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                             pb-12
                         "
                     >
-                        <Card strategy={strategy} />
+                        <Card strategy={strategy} cardSize={largeCard} />
                         <div className='w-full flex flex-col sm:flex-row justify-center gap-6 sm:gap-20 mt-28'>
-                            <Button onClick={changeStrategy}>Draw Card</Button>
-                            <Button>Add to spread</Button>
-                            <Button>Add to favorites</Button>
+                            <Button onClick={changeStrategy} >Draw Card</Button>
+                            <Button onClick={addToSpread} >Add to spread</Button>
+                            <Button onClick={addToFavorites} >Add to favorites</Button>
                         </div>
                     </main>
                 : <HelpPage />
@@ -110,8 +123,8 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                     <i className="fa-solid fa-chevron-right ml-1"></i>
                 </button>
                 { displayFavorites
-                    ? <Favorites />
-                    : <Spread /> 
+                    ? <Favorites favoritesArray={favorites} setFavorites={setFavorites}/>
+                    : <Spread spreadArray={spread} setSpread={setSpread}/> 
                 }
 
             </RightPanel>
