@@ -11,7 +11,7 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
 
     /* ---------- State and functions for resizable frames ---------- */
 
-    const [rightWidth, setRightWidth] = useState();
+    const [rightWidth, setRightWidth] = useState(300);
     const [separatorXPosition, setSeparatorXPosition] = useState();
     const [isDragging, setIsDragging] = useState(false);
 
@@ -28,21 +28,21 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
         if(isDragging && rightWidth && separatorXPosition) {
             const newRightWidth = rightWidth - event.clientX + separatorXPosition;
             setSeparatorXPosition(event.clientX);
-      
+            
             if(newRightWidth < MIN_WIDTH) {
-              setRightWidth(MIN_WIDTH);
-              return;
-            }
-      
-            if(splitPaneRef.current) {
-              const splitPaneWidth = splitPaneRef.current.clientWidth;
-      
-              if(newRightWidth > splitPaneWidth - MIN_WIDTH) {
-                setRightWidth(splitPaneWidth - MIN_WIDTH);
+                setRightWidth(MIN_WIDTH);
                 return;
-              } 
             }
-      
+            
+            if(splitPaneRef.current) {
+                const splitPaneWidth = splitPaneRef.current.clientWidth;
+                
+                if(newRightWidth > splitPaneWidth - MIN_WIDTH) {
+                    setRightWidth(splitPaneWidth - MIN_WIDTH);
+                    return;
+                } 
+            }
+            
             setRightWidth(newRightWidth);
         }
     }
@@ -59,32 +59,37 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
           document.removeEventListener('mouseup', handleMouseUp);
         }
       })
-
-    /* ---- State and functions for Favorites and Spread components ---- */
-      const [displayFavorites, setDisplayFavorites] = useState(false);
-      const [spread, setSpread] = useState([]);
-      const [favorites, setFavorites] = useState([]);
       
-      const toggleFavorites = () => {
+      /* ---- State and functions for Favorites and Spread components ---- */
+    
+    const [displayFavorites, setDisplayFavorites] = useState(false);
+    const [spread, setSpread] = useState([]);
+    const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+    
+    const toggleFavorites = () => {
         setDisplayFavorites(prevState => !prevState);
-      }
-
-      function addToSpread() {
+    }
+    
+    function addToSpread() {
         if(strategy && !spread.includes(strategy)) {
             setSpread(prevSpread => [...prevSpread, strategy]);
         }
-      }
-
-      function addToFavorites() {
+    }
+    
+    function addToFavorites() {
         if(strategy && !favorites.includes(strategy)) {
             setFavorites(prevFav => [...prevFav, strategy]);
         }
-      }
-
+    }
+    
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }, [favorites])
+    
       const largeCard = "text-2xl p-8 w-80 h-60 sm:w-112 sm:h-72"
  
-    return (
-        <div className="flex h-full" ref={splitPaneRef}> 
+      return (
+          <div className="flex h-full" ref={splitPaneRef}> 
             
                 { !displayHelp ?
                     <main 

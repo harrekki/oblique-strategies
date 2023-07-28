@@ -20,9 +20,11 @@ export default function Spread({spreadArray, setSpread}) {
     }
 
     return (
+        
         <div className="flex flex-col items-center gap-4 py-6">
             {layout}
             <Button onClick={clearSpread}>Clear spread</Button>
         </div>
+        
     )
 }
