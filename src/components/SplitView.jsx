@@ -70,12 +70,15 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
       }
 
       function addToSpread() {
-        setSpread(prevSpread => [...prevSpread, strategy]);
+        if(strategy && !spread.includes(strategy)) {
+            setSpread(prevSpread => [...prevSpread, strategy]);
+        }
       }
 
       function addToFavorites() {
-        setFavorites(prevFav => [...prevFav, strategy]);
-        favorites.map(favorite => console.log(favorite))
+        if(strategy && !favorites.includes(strategy)) {
+            setFavorites(prevFav => [...prevFav, strategy]);
+        }
       }
 
       const largeCard = "text-2xl p-8 w-80 h-60 sm:w-112 sm:h-72"

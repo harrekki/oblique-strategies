@@ -16,14 +16,15 @@ export default function Favorites({favoritesArray, setFavorites}) {
         setFavorites([]);
     }
    
-
     return (
         <div className="flex flex-col items-center gap-4 py-6">
             <h1 className="text-lg sm:text-xl uppercase font-bold">Favorites</h1>
+
             <ul className="sm:text-lg list-square px-4 py-4">
-                {favoritesList}
+                    {favoritesList}
             </ul>
             <Button onClick={clearFavorites}>Clear favorites</Button>
+            
         </div>
     )
 }
