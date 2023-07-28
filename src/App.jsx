@@ -1,14 +1,10 @@
 import { useState } from 'react';
 
-// import Card from "./components/Card";
-// import Button from "./components/Button";
-// import HelpPage from "./components/HelpPage";
 import SplitView from './components/SplitView';
 import Link from "./components/Link";
 import HelpButton from './components/HelpButton';
 
 import strategiesArray from './strategies';
-
 const strategies = strategiesArray.strategies;
 
 function App() {

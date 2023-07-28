@@ -64,7 +64,9 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
     
     const [displayFavorites, setDisplayFavorites] = useState(false);
     const [spread, setSpread] = useState([]);
+    const [isSpreadEmpty, setIsSpreadEmpty] = useState(spread ? true : false);
     const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
+    const [isFavoritesEmpty, setIsFavoritesEmpty] = useState(favorites ? true : false);
     
     const toggleFavorites = () => {
         setDisplayFavorites(prevState => !prevState);
@@ -73,12 +75,18 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
     function addToSpread() {
         if(strategy && !spread.includes(strategy)) {
             setSpread(prevSpread => [...prevSpread, strategy]);
+            if(isSpreadEmpty) {
+                setIsSpreadEmpty(false);
+            }
         }
     }
     
     function addToFavorites() {
         if(strategy && !favorites.includes(strategy)) {
             setFavorites(prevFav => [...prevFav, strategy]);
+            if(isFavoritesEmpty) {
+                setIsFavoritesEmpty(false);
+            }
         }
     }
     
@@ -131,8 +139,18 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                     <i className="fa-solid fa-chevron-right ml-1"></i>
                 </button>
                 { displayFavorites
-                    ? <Favorites favoritesArray={favorites} setFavorites={setFavorites}/>
-                    : <Spread spreadArray={spread} setSpread={setSpread}/> 
+                    ? <Favorites 
+                        favoritesArray={favorites} 
+                        setFavorites={setFavorites} 
+                        isFavoritesEmpty={isFavoritesEmpty} 
+                        setIsFavoritesEmpty={setIsFavoritesEmpty}
+                      />
+                    : <Spread 
+                        spreadArray={spread} 
+                        setSpread={setSpread} 
+                        isSpreadEmpty={isSpreadEmpty} 
+                        setIsSpreadEmpty={setIsSpreadEmpty}
+                      /> 
                 }
 
             </RightPanel>
