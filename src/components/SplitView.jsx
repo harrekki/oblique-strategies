@@ -24,7 +24,12 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
         setIsDragging(true);
     }
 
-    const handleMouseMove = (event) => {
+    const handleTouchStart = (event) => {
+        setSeparatorXPosition(event.touches[0].clientX);
+        setIsDragging(true);
+    }
+
+    const onMove = (event) => {
         if(isDragging && rightWidth && separatorXPosition) {
             const newRightWidth = rightWidth - event.clientX + separatorXPosition;
             setSeparatorXPosition(event.clientX);
@@ -47,15 +52,26 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
         }
     }
 
+    const handleMouseMove = (event) => {
+        event.preventDefault();
+        onMove(event);
+    }
+
+    const handleTouchMove = (event) => {
+        onMove(event.touches[0].clientX);
+    }
+
     const handleMouseUp = () => {
         setIsDragging(false);
     }
 
     useEffect(() => {
         document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('touchmove', handleTouchMove);
         document.addEventListener('mouseup', handleMouseUp);
         return () => {
           document.removeEventListener('mousemove', handleMouseMove);
+          document.removeEventListener('touchmove', handleTouchMove);
           document.removeEventListener('mouseup', handleMouseUp);
         }
       })
@@ -122,7 +138,12 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                 : <HelpPage />
                 }
             
-            <div className="px-2 cursor-ew-resize" onMouseDown={handleMouseDown}>
+            <div 
+                className="px-2 cursor-ew-resize" 
+                onMouseDown={handleMouseDown}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleMouseUp}
+            >
                 <div className="w-2 h-full py-96 bg-shark-400 rounded"></div>
             </div>
 
