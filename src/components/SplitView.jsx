@@ -82,7 +82,7 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
     const [spread, setSpread] = useState([]);
     const [isSpreadEmpty, setIsSpreadEmpty] = useState(spread ? true : false);
     const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
-    const [isFavoritesEmpty, setIsFavoritesEmpty] = useState(favorites ? true : false);
+    const [isFavoritesEmpty, setIsFavoritesEmpty] = useState(localStorage.getItem('favorites') ? false : true);
     
     const toggleFavorites = () => {
         setDisplayFavorites(prevState => !prevState);
