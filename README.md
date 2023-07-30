@@ -22,4 +22,5 @@ There is no right or wrong way to interact with the deck, as Eno himself said in
 &copy; 2023 &mdash; David LaRocco
 
 Oblique Strategies &copy; 1975, 1978, and 1979 &mdash; [Brian Eno](https://www.brian-eno.net/) & [Peter Schmidt](http://www.peterschmidtweb.com/main.html)
-
+## License
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
