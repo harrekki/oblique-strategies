@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import {createRef, useEffect} from "react";
+import PropTypes from "prop-types";
 
 function RightPanel({children, rightWidth, setRightWidth, className}) {
     const rightRef = createRef();
@@ -17,6 +19,13 @@ function RightPanel({children, rightWidth, setRightWidth, className}) {
     return (
         <div ref={rightRef} className={className ?? ""}>{children}</div>
     )
+}
+
+RightPanel.PropTypes = {
+    children: PropTypes.any,
+    rightWidth: PropTypes.number,
+    setRightWidth: PropTypes.func,
+    className: PropTypes.string,
 }
 
 export default RightPanel;

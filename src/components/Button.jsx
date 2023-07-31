@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 
 export default function Button({children, onClick}) {
 
@@ -26,4 +27,9 @@ export default function Button({children, onClick}) {
             {children}
         </button>
     )
+}
+
+Button.PropTypes = {
+    children: PropTypes.any,
+    onClick: PropTypes.func,
 }

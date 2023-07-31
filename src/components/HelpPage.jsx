@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "./Link";
 
 export default function HelpPage() {
@@ -31,7 +30,7 @@ export default function HelpPage() {
                 <li className="py-2 sm:py-0"><Link url="https://en.wikipedia.org/wiki/Oblique_Strategies">Wikipedia page</Link></li>
                 <li className="py-2 sm:py-0"><Link url="https://matt-rickard.com/list-of-all-oblique-strategies">Complete list of strategies</Link></li>
                 <li className="py-2 sm:py-0"><Link url="https://www.amazon.com/Oblique-strategies-hundred-worthwhile-dilemmas/dp/B0000EEZG9">Purchase a physical deck</Link></li>
-                <li className="py-2 sm:py-0"><Link url="http://www.rtqe.net/ObliqueStrategies/index.html">Gregory Taylor's site dedicated to the Oblique Strategies</Link></li>
+                <li className="py-2 sm:py-0"><Link url="http://www.rtqe.net/ObliqueStrategies/index.html">Gregory Taylor&apos;s site dedicated to the Oblique Strategies</Link></li>
             </ul>
 
             <h3 className="text-xl font-bold mt-4">Credits</h3>

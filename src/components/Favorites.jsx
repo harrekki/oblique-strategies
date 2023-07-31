@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
 import Button from "./Button";
 
 export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpty, setIsFavoritesEmpty}) {
@@ -40,4 +42,11 @@ export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpt
             
         </div>
     )
+}
+
+Favorites.PropTypes = {
+    favoritesArray: PropTypes.array,
+    setFavorites: PropTypes.func,
+    isFavoritesEmpty: PropTypes.bool,
+    setIsFavoritesEmpty: PropTypes.func,
 }

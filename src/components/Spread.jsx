@@ -1,5 +1,9 @@
+/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
+
 import Button from "./Button";
 import Card from "./Card";
+
 
 export default function Spread({spreadArray, setSpread, isSpreadEmpty, setIsSpreadEmpty}) {
     
@@ -41,4 +45,11 @@ export default function Spread({spreadArray, setSpread, isSpreadEmpty, setIsSpre
         </div>
         
     )
+}
+
+Spread.PropTypes = {
+    spreadArray: PropTypes.array,
+    setSpread: PropTypes.func,
+    isSpreadEmpty: PropTypes.bool,
+    setIsSpreadEmpty: PropTypes.func,
 }

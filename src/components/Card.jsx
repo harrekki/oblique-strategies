@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+import PropTypes from "prop-types";
+
 export default function Card({ strategy, cardSize }) {
 
     const cardStyles = "flex justify-center items-center border border-shark-400 rounded-2xl drop-shadow-xl";
@@ -11,4 +14,9 @@ export default function Card({ strategy, cardSize }) {
             <p className="text-shark-950 text-center">{strategy}</p>
         </div>
     )
+}
+
+Card.PropTypes = {
+    strategy: PropTypes.any,
+    cardSize: PropTypes.string
 }

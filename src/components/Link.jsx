@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 export default function Link({children, url}) {
 
@@ -18,4 +18,9 @@ export default function Link({children, url}) {
         </a>
     )
     
+}
+
+Link.PropTypes = {
+    children: PropTypes.any,
+    url: PropTypes.string,
 }

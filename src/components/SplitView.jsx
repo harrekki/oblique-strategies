@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import {useState, createRef, useEffect} from "react";
+import PropTypes from "prop-types";
 
 import HelpPage from "./HelpPage";
 import RightPanel from "./RightPanel";
@@ -177,6 +179,13 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
             </RightPanel>
         </div>
     )
+}
+
+SplitView.PropTypes = {
+    strategy: PropTypes.any,
+    changeStrategy: PropTypes.func,
+    displayHelp: PropTypes.bool,
+    
 }
 
     
