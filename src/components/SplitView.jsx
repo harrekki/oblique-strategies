@@ -125,7 +125,7 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                             items-center 
                             mt-0 
                             px-12
-                            pb-12
+                            pb-0
                         "
                     >
                         <Card strategy={strategy} cardSize={largeCard} />
@@ -144,7 +144,7 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleMouseUp}
             >
-                <div className="w-2 h-full py-96 bg-shark-400 rounded"></div>
+                <div className="w-2 h-full py-80 bg-shark-400 rounded"></div>
             </div>
 
             <RightPanel 

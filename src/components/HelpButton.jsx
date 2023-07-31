@@ -10,8 +10,9 @@ export default function HelpButton({onClick, children}) {
                 flex 
                 justify-center 
                 items-center 
-                w-14
-                h-14
+                ml-10
+                w-12
+                h-12
                 sm:w-10
                 sm:h-10
                 border-4 

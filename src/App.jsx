@@ -21,16 +21,16 @@ function App() {
  
   return (
     <div className="flex flex-col">
-      <header className='flex flex-col w-11/12 shrink-0 relative py-4 mx-auto'> 
+      <header className='flex w-11/12 shrink-0 justify-center items-center py-4 mx-auto'> 
       
-        <HelpButton onClick={toggleHelp}>
-          {displayHelp 
-            ? <i className="fa-solid fa-arrow-left"></i>
-            : <i className="fa-solid fa-question"></i>
-        }
-        </HelpButton>
+          <h1 className="text-nomad-950 text-4xl sm:text-6xl font-display text-center mt-4 sm:mt-1">Oblique Strategies</h1>
+          <HelpButton onClick={toggleHelp}>
+            {displayHelp 
+              ? <i className="fa-solid fa-arrow-left"></i>
+              : <i className="fa-solid fa-question"></i>
+            }
+          </HelpButton>
     
-        <h1 className="text-nomad-950 text-4xl sm:text-6xl font-display text-center mt-4 sm:mt-1">Oblique Strategies</h1>
       </header>
 
       <SplitView 
