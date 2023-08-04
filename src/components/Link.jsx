@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import styles from "./styles";
 
 export default function Link({children, url}) {
 
@@ -7,12 +8,7 @@ export default function Link({children, url}) {
             href={url} 
             target="_blank" 
             rel="noreferrer"
-            className="
-                text-nomad-800
-                hover:border-b-2 
-                border-nomad-600
-                hover:text-nomad-600 
-            "
+            className={styles.link}
         >
             {children}
         </a>
