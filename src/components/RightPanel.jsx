@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import {createRef, useEffect} from "react";
 import PropTypes from "prop-types";
+import { rightPanelStyles } from "./styles";
 
-function RightPanel({children, rightWidth, setRightWidth, className}) {
+function RightPanel({children, rightWidth, setRightWidth}) {
     const rightRef = createRef();
 
     useEffect(() => {
@@ -17,7 +18,12 @@ function RightPanel({children, rightWidth, setRightWidth, className}) {
     }, [rightRef, rightWidth, setRightWidth]);
 
     return (
-        <div ref={rightRef} className={className ?? ""}>{children}</div>
+        <div 
+            ref={rightRef} 
+            className={rightPanelStyles.div}
+        >
+            {children}
+        </div>
     )
 }
 

@@ -9,6 +9,8 @@ import Button from "./Button";
 import Favorites from "./Favorites";
 import Spread from "./Spread";
 
+import { splitViewStyles } from "./styles";
+
 export default function SplitView({strategy, changeStrategy, displayHelp}) {
 
     /* ---------- State and functions for resizable frames ---------- */
@@ -112,26 +114,13 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites])
     
-      const largeCard = "text-2xl p-8 w-80 h-60 sm:w-112 sm:h-72"
- 
       return (
           <div className="flex h-full" ref={splitPaneRef}> 
             
                 { !displayHelp ?
-                    <main 
-                        className="
-                            flex 
-                            flex-col 
-                            grow 
-                            justify-center 
-                            items-center 
-                            mt-0 
-                            px-12
-                            pb-0
-                        "
-                    >
-                        <Card strategy={strategy} cardSize={largeCard} />
-                        <div className='w-full flex flex-col sm:flex-row justify-center gap-6 sm:gap-20 mt-28'>
+                    <main className={splitViewStyles.main}>
+                        <Card strategy={strategy} cardSize={splitViewStyles.cardSize} />
+                        <div className={splitViewStyles.buttonDiv}>
                             <Button onClick={changeStrategy} >Draw Card</Button>
                             <Button onClick={addToSpread} >Add to spread</Button>
                             <Button onClick={addToFavorites} >Add to favorites</Button>
@@ -146,16 +135,15 @@ export default function SplitView({strategy, changeStrategy, displayHelp}) {
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleMouseUp}
             >
-                <div className="w-2 h-full py-80 bg-shark-400 rounded"></div>
+                <div className={splitViewStyles.divider}></div>
             </div>
 
             <RightPanel 
                 rightWidth={rightWidth} 
                 setRightWidth={setRightWidth}
-                className="bg-shark-50 w-full flex flex-col item-center"
             >
                 <button 
-                    className="text-shark-950 font-bold text-lg self-end pt-4 mr-4 hover:text-nomad-700"
+                    className={splitViewStyles.button}
                     onClick={toggleFavorites}
                 >
                     Show {displayFavorites ? "spread" : "favorites"} 

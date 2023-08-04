@@ -5,6 +5,7 @@ import Link from "./components/Link";
 import HelpButton from './components/HelpButton';
 
 import strategiesArray from './strategies';
+import { appStyles } from './components/styles';
 const strategies = strategiesArray.strategies;
 
 function App() {
@@ -21,9 +22,9 @@ function App() {
  
   return (
     <div className="flex flex-col">
-      <header className='flex w-11/12 shrink-0 justify-center items-center py-4 mx-auto'> 
+      <header className={appStyles.header}> 
       
-          <h1 className="text-nomad-950 text-4xl sm:text-6xl font-display text-center mt-4 sm:mt-1">Oblique Strategies</h1>
+          <h1 className={appStyles.h1}>Oblique Strategies</h1>
           <HelpButton onClick={toggleHelp}>
             {displayHelp 
               ? <i className="fa-solid fa-arrow-left"></i>
@@ -39,8 +40,8 @@ function App() {
         displayHelp={displayHelp} 
       />
 
-      <footer className="w-full shrink-0 py-4 px-12 shadow-inner">
-        <p className='text-sm text-shark-900 text-center'>
+      <footer className={appStyles.footer}>
+        <p>
           &copy; 2023 by <Link url="https://www.davidlarocco.dev/">David LaRocco</Link> 
         </p>
       </footer>

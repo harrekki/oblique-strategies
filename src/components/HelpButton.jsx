@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
-import styles from "./styles";
+import {styles} from "./styles";
 
 export default function HelpButton({onClick, children}) {
      return (

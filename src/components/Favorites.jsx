@@ -2,6 +2,8 @@
 import PropTypes from "prop-types";
 import Button from "./Button";
 
+import { favoritesStyles } from "./styles";
+
 export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpty, setIsFavoritesEmpty}) {
     let id = 0;
 
@@ -20,14 +22,14 @@ export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpt
     }
 
     const message = (
-        <p className="text-nomad-500 text-center italic px-4">
+        <p className={favoritesStyles.message}>
             You currently have no favorite strategies saved.
         </p>
     );
 
     const displayUi = (
         <>
-            <ul className="sm:text-lg list-square px-4 py-4">
+            <ul className={favoritesStyles.ul}>
                     {favoritesList}
             </ul>
             <Button onClick={clearFavorites}>Clear favorites</Button>
@@ -35,8 +37,8 @@ export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpt
     )
    
     return (
-        <div className="flex flex-col items-center gap-4 py-6">
-            <h1 className="text-lg sm:text-xl uppercase font-bold">Favorites</h1>
+        <div className={favoritesStyles.div}>
+            <h2 className={favoritesStyles.h2}>Favorites</h2>
 
            {isFavoritesEmpty ? message : displayUi}
             
