@@ -3,16 +3,15 @@ import PropTypes from "prop-types";
 
 import Button from "./Button";
 import Card from "./Card";
+import { nanoid } from "nanoid";
 
 import {spreadStyles} from "./styles";
 
 
 export default function Spread({spreadArray, setSpread, isSpreadEmpty, setIsSpreadEmpty}) {
     
-    let id = 0;
-
     const layout = spreadArray.map(card => {
-        id += 1;
+        const id = nanoid();
         return (
             <div key={id}>
                 <Card strategy={card} cardSize={spreadStyles.cardSize}/>

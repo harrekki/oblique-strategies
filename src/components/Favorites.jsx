@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import PropTypes from "prop-types";
 import Button from "./Button";
+import { nanoid } from "nanoid";
 
 import { favoritesStyles } from "./styles";
 
 export default function Favorites({favoritesArray, setFavorites, isFavoritesEmpty, setIsFavoritesEmpty}) {
-    let id = 0;
-
     const favoritesList = favoritesArray.map(favorite => {
-        id += 1;
+        const id = nanoid();
         return (
             <li key={id} className="py-1 sm:py-2">
                 <p>{favorite}</p>
