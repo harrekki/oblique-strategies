@@ -3,7 +3,7 @@
 ## Overview
 This application is based on a deck of cards created by the musician Brian Eno and artist Peter Schmidt. An individual card can be drawn randomly from the deck, providing a suggestion, phrase, or word that offers an alternative way to think about a problem.  Other features include saving multiple cards in a layout to combine multiple strategies, and being able to save favorite strategies (persistant in localStorage) to review later when needed.
 
-If you're interested in how I built this app, check out the [project page](https://davidlarocco.dev/pages/project-oblique-strategies.html) on my portfolio website!
+If you're interested in how I built this app, check out the [project page](https://davidlarocco.dev/src/pages/project-oblique-strategies.html) on my portfolio website!
 ## Installation and Usage
 Oblique Strategies is a React web  application, and can be loaded with a web browser (use this [link](https://harrekki-oblique-strategies.netlify.app/)).  While it is responsive, it will perform best on the desktop.  
 To run locally, you will need to install [node.js](https://nodejs.org/en/download) and then clone this respository. You can then run the following commands:
